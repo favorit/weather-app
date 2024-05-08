@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
 
 function App() {
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("searching for weather");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="wrapper">
+      <header>
+        <h1>My Weather App</h1>
       </header>
+      <main>
+        <section className="search-form">
+          <form onSubmit={handleSearch}>
+            <input type="text" name="q" placeholder="Enter location" />
+            <button type="submit">Get Weather</button>
+          </form>
+        </section>
+        <section className="weather-display">location weather info</section>
+        <section className="favorites">favorite locations</section>
+      </main>
     </div>
   );
 }
