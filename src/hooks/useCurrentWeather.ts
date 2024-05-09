@@ -67,6 +67,7 @@ const useCurrentWeather = (query: string) => {
     queryFn: () => fetchCurrentWeather(query),
     staleTime: 10 * 60 * 1000,
     networkMode: "offlineFirst",
+    enabled: !!query,
   });
 };
 

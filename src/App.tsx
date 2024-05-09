@@ -1,6 +1,10 @@
 import React from "react";
-import "./App.css";
+
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
+import "./App.css";
+import WeatherInfo from "./components/WeatherInfo";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -24,10 +28,14 @@ function App() {
               <button type="submit">Get Weather</button>
             </form>
           </section>
-          <section className="weather-display">location weather info</section>
+          <section className="weather-display">
+            <WeatherInfo />
+          </section>
+
           <section className="favorites">favorite locations</section>
         </main>
       </div>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }
