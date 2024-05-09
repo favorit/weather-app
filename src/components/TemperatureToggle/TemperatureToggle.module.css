@@ -1,0 +1,40 @@
+/* .toggle {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: #0056b3;
+  }
+  &:active {
+    background-color: #00408d;
+  }
+} */
+
+.unit {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clickable {
+  cursor: pointer;
+  color: #70757a;
+}
+
+.selected {
+  color: #202124;
+}
+
+.separator {
+  width: 1px;
+  height: 100%;
+  margin: 0 4px;
+  background-color: #70757a;
+}

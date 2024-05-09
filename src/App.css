@@ -6,6 +6,8 @@
 header {
   background-color: #9fdca8;
   padding: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 section.weather-display {

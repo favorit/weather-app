@@ -1,0 +1,15 @@
+.wrapper {
+  border: 1px solid #000000;
+  border-radius: 3px;
+  width: 300px;
+  padding: 20px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.temperature {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

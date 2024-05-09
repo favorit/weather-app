@@ -17,9 +17,9 @@ describe("WeatherInfo", () => {
       isLoading: true,
       isError: false,
       data: undefined,
-    });
+    } as any);
 
-    render(<WeatherInfo query="Berlin" />);
+    render(<WeatherInfo query="Berlin" tempUnit="C" />);
     expect(screen.getByText(/Loading.../i)).toBeInTheDocument();
   });
 
@@ -31,20 +31,29 @@ describe("WeatherInfo", () => {
       data: {
         current: {
           temp_c: 20,
+          temp_f: 68,
           condition: {
             text: "Sunny",
+            icon: "https://cdn.weatherapi.com/weather/64x64/d/01d",
+            code: 1000,
           },
         },
         location: {
           name: query,
+          country: "Germany",
         },
       },
-    });
+    } as any);
 
-    render(<WeatherInfo query={query} />);
-    expect(screen.getByText(/Weather in Berlin/i)).toBeInTheDocument();
-    expect(screen.getByText(/Temperature: 20°C/i)).toBeInTheDocument();
-    expect(screen.getByText(/Condition: Sunny/i)).toBeInTheDocument();
+    const { rerender } = render(<WeatherInfo query={query} tempUnit="C" />);
+    expect(screen.getByText(/Berlin/i)).toBeInTheDocument();
+    expect(screen.getByText(/20°C/i)).toBeInTheDocument();
+    expect(screen.getByText(/Sunny/i)).toBeInTheDocument();
+
+    rerender(<WeatherInfo query={query} tempUnit="F" />);
+    expect(screen.getByText(/Berlin/i)).toBeInTheDocument();
+    expect(screen.getByText(/68°F/i)).toBeInTheDocument();
+    expect(screen.getByText(/Sunny/i)).toBeInTheDocument();
   });
 
   it("displays error message on failure", () => {
@@ -53,9 +62,9 @@ describe("WeatherInfo", () => {
       isError: true,
       error: new Error("Network request failed"),
       data: undefined,
-    });
+    } as any);
 
-    render(<WeatherInfo query="Berlin" />);
+    render(<WeatherInfo query="Berlin" tempUnit="C" />);
     expect(screen.getByText(/Network request failed/i)).toBeInTheDocument();
   });
 });

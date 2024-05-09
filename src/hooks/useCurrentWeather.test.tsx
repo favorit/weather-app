@@ -58,7 +58,7 @@ describe("useCurrentWeather", () => {
     nock("https://api.weatherapi.com")
       .get("/v1/current.json")
       .query({ key: process.env.REACT_APP_WEATHER_API_KEY, q: query })
-      .reply(500);
+      .reply(500, undefined, { "Access-Control-Allow-Origin": "*" });
 
     const wrapper = createWrapper();
     const { result, waitFor } = renderHook(() => useCurrentWeather(query), {
@@ -66,6 +66,6 @@ describe("useCurrentWeather", () => {
     });
     await waitFor(() => result.current.isError);
 
-    expect(result.current.error!.message).toEqual("Network request failed");
+    expect(result.current.error!.message).toEqual("Something went wrong!");
   });
 });
