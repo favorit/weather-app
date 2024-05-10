@@ -9,9 +9,14 @@ import { UserSettings } from "./types/userSettings";
 import useUserSettings from "./hooks/useUserSettings";
 import useFavoriteLocations from "./hooks/useFavoriteLocations";
 import FavoriteLocationsList from "./components/FavoriteLocationsList";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 function App() {
-  const [query, setQuery] = useState("");
+  const [latestLocation, setLatestLocation] = useLocalStorage(
+    "weather-latest-location",
+    "Berlin"
+  );
+  const [query, setQuery] = useState(latestLocation);
   const { userSettings, setUserSettings } = useUserSettings();
   const {
     favoriteLocations,
@@ -22,6 +27,7 @@ function App() {
 
   const handleSearch = (query: string) => {
     setQuery(query);
+    setLatestLocation(query);
   };
 
   const handleTemperatureToggle = (unit: TempUnit) => {

@@ -30,12 +30,6 @@ const FavoriteLocationsList = ({ locations, onRemove, onSearch }: Props) => {
         >
           <span>{location}</span>
           <Star isFilled onClick={handleRemove(location)} />
-          {/* <span
-            className={styles.removeButton}
-            onClick={handleRemove(location)}
-          >
-            x
-          </span> */}
         </li>
       ))}
     </ul>

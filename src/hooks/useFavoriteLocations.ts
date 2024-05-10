@@ -1,7 +1,5 @@
 import useLocalStorage from "./useLocalStorage";
 
-const MAX_LOCATIONS = 10;
-
 const useFavoriteLocations = () => {
   const [favoriteLocations, setFavoriteLocations] = useLocalStorage<string[]>(
     "weather-favorite-locations",
@@ -9,10 +7,6 @@ const useFavoriteLocations = () => {
   );
 
   const addLocationToFavorites = (location: string) => {
-    if (favoriteLocations.length >= MAX_LOCATIONS) {
-      alert("Maximum of 10 locations can be added.");
-      return;
-    }
     if (!favoriteLocations.includes(location)) {
       setFavoriteLocations([...favoriteLocations, location]);
     }
