@@ -5,17 +5,19 @@ import WeatherInfo from "./components/WeatherInfo";
 import SearchForm from "./components/SearchForm";
 import TemperatureToggle from "./components/TemperatureToggle";
 import { TempUnit } from "./types/weatherTypes";
-import useLocalStorage from "./hooks/useLocalStorage";
 import { UserSettings } from "./types/userSettings";
+import useUserSettings from "./hooks/useUserSettings";
+import useFavoriteLocations from "./hooks/useFavoriteLocations";
+import FavoriteLocationsList from "./components/FavoriteLocationsList";
 
 function App() {
   const [query, setQuery] = useState("");
-  const [userSettings, setUserSettings] = useLocalStorage<UserSettings>(
-    "user-settings",
-    {
-      tempUnit: "C",
-    }
-  );
+  const { userSettings, setUserSettings } = useUserSettings();
+  const {
+    favoriteLocations,
+    addLocationToFavorites,
+    removeLocationFromFavorites,
+  } = useFavoriteLocations();
   const [tempUnit, setTempUnit] = useState<TempUnit>(userSettings.tempUnit);
 
   const handleSearch = (query: string) => {
@@ -43,10 +45,20 @@ function App() {
         <section className="search-form">
           <SearchForm onSubmit={handleSearch} />
         </section>
-        <section className="weather-display">
-          <WeatherInfo query={query} tempUnit={tempUnit} />
-        </section>
-        <section className="favorites">favorite locations</section>
+        {query && (
+          <section className="weather-display">
+            <WeatherInfo
+              query={query}
+              tempUnit={tempUnit}
+              onAddToFavorites={addLocationToFavorites}
+              favoriteLocations={favoriteLocations}
+            />
+          </section>
+        )}
+        <FavoriteLocationsList
+          locations={favoriteLocations}
+          onRemove={removeLocationFromFavorites}
+        />
       </main>
     </div>
   );

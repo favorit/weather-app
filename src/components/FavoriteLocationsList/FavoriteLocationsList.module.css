@@ -1,0 +1,40 @@
+.list {
+  display: flex;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  gap: 10px;
+  background-color: #40666b;
+  padding: 20px;
+}
+
+.item {
+  width: 200px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  background-color: #ffff;
+  padding: 0 10px;
+  flex: 0 0 auto;
+}
+
+.list::-webkit-scrollbar {
+  display: none;
+}
+
+.removeButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: #0056b3;
+  }
+}
