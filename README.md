@@ -27,8 +27,9 @@ Your app is ready to be deployed!
 
 1. Remove .env from the repo for security reasons.
 2. Design aka version 0.1 <3
-3. Add more unit and integration tests.
-4. Accessibility.
+3. Accessibility.
+4. Add more unit and integration tests.
+5. Optimize requests to the WeatherAPI. 
 5. Enreach User Settings (kph/mph).
 6. Fetch user location as default Weather Info.
 7. Store User Settings in React Context to access in different parts of the app without drilling props.  
