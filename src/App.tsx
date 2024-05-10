@@ -58,6 +58,7 @@ function App() {
         <FavoriteLocationsList
           locations={favoriteLocations}
           onRemove={removeLocationFromFavorites}
+          onSearch={handleSearch}
         />
       </main>
     </div>

@@ -1,5 +1,6 @@
 import useCurrentWeather from "../../hooks/useCurrentWeather";
 import { TempUnit } from "../../types/weatherTypes";
+import Star from "../Star";
 
 import styles from "./WeatherInfo.module.css";
 
@@ -39,14 +40,12 @@ const WeatherInfo = ({
   return (
     <div className={styles.wrapper}>
       {isButtonVisible ? (
-        <button
+        <Star
+          className={styles.add}
           onClick={() => onAddToFavorites(data.location.name)}
-          className={styles.addButton}
-        >
-          +
-        </button>
+        />
       ) : null}
-      <h1>{data.location.name}</h1>
+      <h2>{data.location.name}</h2>
       <div className={styles.temperature}>
         <img src={iconUrl} alt={data.current.condition.text} />
         {temp}

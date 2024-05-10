@@ -102,7 +102,7 @@ describe("WeatherInfo", () => {
         favoriteLocations={[]}
       />
     );
-    const button = screen.getByText(/\+/i);
+    const button = screen.getByText(/☆/i);
     expect(button).toBeInTheDocument();
     await userEvent.click(button);
 

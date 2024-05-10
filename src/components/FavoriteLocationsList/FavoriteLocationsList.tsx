@@ -1,25 +1,41 @@
+import Star from "../Star";
 import styles from "./FavoriteLocationsList.module.css";
 
 interface Props {
   locations: string[];
   onRemove: (location: string) => void;
+  onSearch: (query: string) => void;
 }
 
-const FavoriteLocationsList = ({ locations, onRemove }: Props) => {
+const FavoriteLocationsList = ({ locations, onRemove, onSearch }: Props) => {
   if (locations.length === 0) {
     return null;
   }
+
+  const handleRemove =
+    (location: string) =>
+    (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+      e.preventDefault();
+      e.stopPropagation();
+      onRemove(location);
+    };
+
   return (
     <ul className={styles.list}>
       {locations.map((location) => (
-        <li className={styles.item} key={location}>
+        <li
+          className={styles.item}
+          onClick={() => onSearch(location)}
+          key={location}
+        >
           <span>{location}</span>
-          <span
+          <Star isFilled onClick={handleRemove(location)} />
+          {/* <span
             className={styles.removeButton}
-            onClick={() => onRemove(location)}
+            onClick={handleRemove(location)}
           >
             x
-          </span>
+          </span> */}
         </li>
       ))}
     </ul>

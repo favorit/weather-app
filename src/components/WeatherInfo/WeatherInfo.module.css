@@ -1,11 +1,15 @@
 .wrapper {
   border: 1px solid #000000;
   border-radius: 3px;
-  padding: 20px;
   margin: 0 auto;
   text-align: center;
   position: relative;
   background: #fff;
+  width: 200px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .temperature {
@@ -15,20 +19,8 @@
   align-items: center;
 }
 
-.addButton {
-  padding: 10px 20px;
-  font-size: 16px;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  outline: none;
-  transition: background-color 0.3s ease;
+.add {
   position: absolute;
   right: 20px;
   top: 20px;
-  &:hover {
-    background-color: #0056b3;
-  }
 }
