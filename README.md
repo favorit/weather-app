@@ -1,5 +1,7 @@
 # Weather App
 
+Enjoy my beautiful Weather App :)
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -9,13 +11,9 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode.
 
 ### `yarn build`
 
@@ -24,3 +22,17 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
+
+## Future improvements:
+
+1. Remove .env from the repo for security reasons.
+2. Design aka version 0.1 <3
+3. Add more unit and integration tests.
+4. Accessibility.
+5. Enreach User Settings (kph/mph).
+6. Fetch user location as default Weather Info.
+7. Store User Settings in React Context to access in different parts of the app without drilling props.  
+8. and many many more :)
+
+---
+Thank you!
