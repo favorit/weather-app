@@ -5,11 +5,23 @@
   text-align: center;
   position: relative;
   background: #fff;
-  width: 200px;
+  width: 300px;
   height: 250px;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  box-sizing: border-box;
+  gap: 10px;
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    width: auto;
+  }
+}
+
+.title {
+  margin: 0;
 }
 
 .temperature {
@@ -17,10 +29,38 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 5px;
+  color: #202124;
+}
+
+.temperatureValue {
+  display: flex;
+  justify-items: start;
+  gap: 3px;
+  font-size: 48px;
+}
+
+.temperatureNumber {
+  line-height: 1;
+}
+
+.temperatureUnit {
+  font-size: 16px;
 }
 
 .add {
   position: absolute;
   right: 20px;
   top: 20px;
+}
+
+.additionalInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  text-align: left;
+  color: #70757a;
+  font-size: 12px;
+  line-height: 16px;
+  margin-left: 10px;
 }

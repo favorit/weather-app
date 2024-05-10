@@ -32,7 +32,8 @@ const WeatherInfo = ({
   }
 
   const iconUrl = `https:${data.current.condition.icon}`;
-  const temp = tempUnit === "C" ? data.current.temp_c : data.current.temp_f;
+  const temperature =
+    tempUnit === "C" ? data.current.temp_c : data.current.temp_f;
   const unit = tempUnit === "C" ? "°C" : "°F";
   const isFavorite = favoriteLocations.includes(data.location.name);
   const isButtonVisible = !isFavorite && !!onAddToFavorites;
@@ -45,13 +46,23 @@ const WeatherInfo = ({
           onClick={() => onAddToFavorites(data.location.name)}
         />
       ) : null}
-      <h2>{data.location.name}</h2>
+      <h2 className={styles.title}>{data.location.name}</h2>
       <div className={styles.temperature}>
         <img src={iconUrl} alt={data.current.condition.text} />
-        {temp}
-        {unit}
+        <div className={styles.temperatureValue}>
+          <span className={styles.temperatureNumber}>
+            {Math.ceil(temperature)}
+          </span>
+          <div className={styles.temperatureUnit}>{unit}</div>
+        </div>
+        <div className={styles.additionalInfo}>
+          <span>Precipitation: {data.current.precip_mm}mm</span>
+          <span>Humidity: {data.current.humidity}%</span>
+          <span>Wind: {data.current.wind_kph} km/h</span>
+        </div>
       </div>
-      <p>{data.current.condition.text}</p>
+
+      <div>{data.current.condition.text}</div>
     </div>
   );
 };
